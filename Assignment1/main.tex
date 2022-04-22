@@ -1,0 +1,139 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage[export]{adjustbox}
+\usepackage{bm}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{listings}
+\usepackage{color}                                            %%
+\usepackage{array}                                            %%
+\usepackage{longtable}                                        %%
+\usepackage{calc}                                             %%
+\usepackage{multirow}                                         %%
+\usepackage{hhline}                                           %%
+\usepackage{ifthen}                                           %%
+\usepackage{lscape}     
+\usepackage{multicol}
+\DeclareMathOperator*{\Res}{Res}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+	frame=single, 
+	breaklines=true,
+	columns=fullflexible
+}
+
+\usepackage{graphicx}
+
+\begin{document}
+	\title{\huge{Assignment 1}\\AI1110}
+	\author{\Large{I SAI PRADEEP}\\AI21BTECH11013}
+	\maketitle
+	\begin{abstract}
+		This document contains the solution to problem 3 (c) in 10th ICSE 2019 Paper
+	\end{abstract}
+	
+	%Question
+	\noindent \textbf{Question 3(c)} A solid metallic sphere of radius 6cm is melted and made into a solid cylinder of height 32cm. Find the
+	\begin{enumerate}[label=(\roman*)]
+		\item radius of the cylinder
+		\item curved surface area of the cylinder
+	\end{enumerate}	
+	%Solution
+
+	\textbf{Solution:} The various parameters involved in this question are listed in Table \eqref{table:table1}:
+	\begin{table}[!ht]
+		\input{tables/table.tex}
+		\caption{}
+		\label{table:table1}	
+	\end{table}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{fig_sphere.png}
+	\caption{sphere of radius 6cm}
+	\label{sphere}
+\end{figure}
+
+	The Volume of a sphere of radius R is:
+	\begin{align} 
+		4/3 \times \pi \times R^3
+	\end{align}
+	
+	Let $V$ be the volume of the metallic sphere, of radius 6cm. 
+	Hence,
+	\begin{align} V&=4/3 \times \pi \times 6^3 cm^3 
+		\label{eq:sphere}
+	\end{align} 
+	\begin{enumerate}[label=(\roman*)]
+		\item When the sphere is melted, it's volume doesn't change
+		Since the cylinder is obtained by melting the sphere, Hence the volume of the cylinder is same as that of the sphere.
+		Let radius of the cylinder be r cm.
+		The volume of this cylinder is given as: 
+		\begin{align} 
+		Volume &= \pi \times r^2 \times h cm^3
+			\label{eq:cylinder}
+		\end{align}
+		where h=32cm
+		Using Equations 
+		\eqref{eq:sphere} and 
+		\eqref{eq:cylinder} 
+		,equating them,we get 
+		\begin{align}
+		4/3 \times \pi \times 6^3 cm^3&=\pi \times r^2 \times 32 cm^3
+			\\
+		\implies 4/3 \times 216&=r^2 \times 32
+			\\
+		\implies 288&= r^2 \times 32
+			\\
+		\implies r^2&= 288/32
+			\\
+		\implies r^2&=9
+			\\
+		\implies r&=3cm
+		\end{align} 
+	$\therefore$  radius of the  cylinder is 3 cm
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.5\columnwidth]{fig_cylinder.png}
+			\caption{cylinder of radius 3cm and height 32cm}
+			\label{cylinder}
+		\end{figure}
+		\item The curved surface area ( CSA ) of a cylinder in centimeter square units with radius r cm and height h cm is given as
+		$ 2 \times \pi \times r \times h $
+		\\
+		Let $C$ be the CSA(curved surface area) of the cylinder.
+		\begin{align}	
+		\implies C&=2 \times \pi \times r \times h
+		\end{align}
+		
+		Here for the cylinder r=3cm and h=32cm\\
+		%	Substituting the values of r and h respectively as 3 cm and 32 cm,
+		\begin{align}	
+		\implies C&=2 \times \pi \times 3 \times 32
+			\\
+		\implies C&=192 \times \pi 
+			\\
+		%	Substituting the approximate value of pi in the Equation (3), we get
+		\implies C&=603.185789 cm^2 
+		\end{align}
+	
+	\end{enumerate}
+		$\therefore$ The Curved Surface Area of cylinder is nearly 603 square centimeters.
+	\ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}\gnumericTableEnds
+\end{document}
