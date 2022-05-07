@@ -1,48 +1,9 @@
-\let\negmedspace\undefined
-\let\negthickspace\undefined
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
-\usepackage{gensymb}
-\usepackage{amssymb}
-\usepackage[cmex10]{amsmath}
-\usepackage{amsthm}
-\usepackage[export]{adjustbox}
-\usepackage{bm}
-\usepackage{longtable}
-\usepackage{enumitem}
-\usepackage{mathtools}
-\usepackage{tikz}
-\usepackage[breaklinks=true]{hyperref}
-\usepackage{listings}
-\usepackage{color}                                            %%
-\usepackage{array}                                            %%
-\usepackage{longtable}                                        %%
-\usepackage{calc}                                             %%
-\usepackage{multirow}                                         %%
-\usepackage{hhline}                                           %%
-\usepackage{ifthen}                                           %%
-\usepackage{lscape}     
-\usepackage{multicol}
-\DeclareMathOperator*{\Res}{Res}
-
-\providecommand{\mbf}{\mathbf}
+\usepackage{amsmath}
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
-\renewcommand\thesection{\arabic{section}}
-\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
-\renewcommand\thesectiondis{\arabic{section}}
-\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
-\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
-\hyphenation{op-tical net-works semi-conduc-tor}
-\def\inputGnumericTable{}                                 %%
-\lstset{
-	frame=single, 
-	breaklines=true,
-	columns=fullflexible
-}
-
-\usepackage{graphicx}
-
-
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
 \begin{document}
 	\title{\huge{Assignment 2}\\AI1110}
 	\author{\Large{I Sai Pradeep}\\AI21BTECH11013}
@@ -54,40 +15,31 @@
 	\noindent \textbf{Question 1(ix):}
 	Two balls are drawn from an urn containing 3 white,5 red and 2 black balls, one by one without replacement. What is the probability that at least one ball is red?\\	
 	%Solution
-	\textbf{Solution:}
-	\begin{enumerate}
-		\item Denote the outcome of experiment by a random variable $X_3$ $\in$ \{0,1\}, where $X_3=0$ denote the occurrence that none of the balls drawn is red,and $X_3=1$ denote the occurrence that at least one ball of the balls drawn is red. 
-		\item Let the outcome of first draw is denoted by the random variable $X_1$ $\in$ \{0,1\}, where $X_1=0$ denotes the event that first ball drawn is red,and $X_1=1$ denotes the event that first ball drawn is not red.
-		\item  Similarly, the outcome of second draw is denoted by the random variable $X_2$ $\in$ \{0,1\}, where $X_2=1$ denotes the event that second ball drawn is red,and $X_2=1$ denotes the event that second ball drawn is not red. 
-		See Tables 
-		\eqref{table:prob1}
-		and 
-		\eqref{table:prob2} 
-		for the input probabilities.
-		\begin{table}[ht!]
-			\input{tables/prob1.tex}
-			\vspace*{5pt}
-			\caption{}
-			\label{table:prob1}
-		\end{table}
-		\begin{table}[ht!]
-			\input{tables/prob2.tex}
-			\vspace*{5pt}
-			\caption{}
-			\label{table:prob2}
-		\end{table}
-		The desired probability is then obtained from
-		\eqref{eq:prob_1}
-		\begin{align}
-		\pr{X_3=1}&= 1-\pr{X_1=1} \times \pr{X_2=1/X_1 =1}
-	    \label{eq:prob_1}
-		\end{align}
-		\begin{align}
-			\implies \pr{X_3 = 1} &= 1-{{\dfrac{1}{2}} \times \dfrac{4}{9}}
-			\\
-			&= \dfrac{7}{9}
-	    \end{align}
-		$\therefore$ The probability of drawing at least one red ball is \dfrac{7}{9}
-		
-	\end{enumerate}
+	\textbf{Solution:} Let $X=\cbrak{0,1,2}$ be a random variable representing the colour of the ball, and let $Y=\cbrak{0,1}$ be a random variable representing the draw number. Let $P_7$ be the probability that atleast one of the balls drawn is red.
+	See Tables 
+	\eqref{table:prob1}
+	and 
+	\eqref{table:prob2} 
+	\begin{table}[ht!]
+		\input{tables/prob1.tex}
+		\vspace*{5pt}
+		\caption{}
+		\label{table:prob1}
+	\end{table}
+	\begin{table}[ht!]
+		\input{tables/prob2.tex}
+		\vspace*{5pt}
+		\caption{}
+		\label{table:prob2}
+	\end{table}
+	for the input probabilities.
+	The desired probability is then obtained from Table \eqref{table:prob2} as
+	
+	\begin{align}
+		P_7 &=1-(P_3+P_4+P_5+P_6) \\
+		&= 1-(\dfrac{1}{45}+ \dfrac{1}{15} + \dfrac{1}{15} + \dfrac{1}{15}) \\
+		&= 1-\dfrac{2}{9}\\
+		&= \dfrac{7}{9}
+	\end{align}
+	Hence, the probability that atleast one of the balls drawn from the urn is red is $\dfrac{7}{9}$.
 \end{document}
