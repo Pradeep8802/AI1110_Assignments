@@ -1,0 +1,112 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}                                     
+
+\title{AI1110 \\ Assignment 3}
+\author{Sai Pradeep \\ AI21BTECH11013}
+\date{\today}
+
+
+\begin{document}
+	% The title page
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	% The table of contents
+	\begin{frame}{Outline}
+		\tableofcontents
+	\end{frame}
+	
+	% The question
+	\section{Question}
+	\begin{frame}{Question 8,Exercise 13.3:}
+	Q:-A factory has two machines A and B. Past record shows that machine A produced 60\% of the items of output and machine B produced 40\% of the items. Further,2\% of the items produced by machine A and 1\% produced by machine B were defective. All the items are put into one stockpile and then one item is chosen at random from this and is found to be defective. What is the probability that it was produced by machine B? \\
+	
+	\end{frame}
+	
+	% The solution
+	\section{Solution}
+	\begin{frame}{Solution}
+	 Let $X=\cbrak{0,1}$ be a random variable representing the machine from which the item is selected and let $Y=\cbrak{0,1}$ be a random variable representing the chances that the selected item is defective. Let $P_7$ be the probability that the selected item is defective, and let $P_8$ be the probability that the selected item is defective and is from machine B. See Tables 
+	\eqref{table:table-1}
+	and 
+	\eqref{table:table-2} for the input probabilities.
+	 	\end{frame}
+	 \begin{frame}{Events and random variables}
+	\begin{table}[ht!]
+		\input{../tables/table-1.tex}
+		\vspace*{5pt}
+		\caption{}
+		\label{table:table-1}
+	\end{table}
+	\end{frame}
+	\begin{frame}{Table containing input probabilities}
+		The following are the input probabilities as given in the question:
+		\begin{table}[ht!]
+			\centering
+			\input{../tables/table-2.tex}
+			\caption{Input probabilities}
+			\label{table:table2}	
+		\end{table}
+	\end{frame}
+	\begin{frame}{Computation}
+		The desired probability is then obtained from Table \eqref{table:table-2} as
+	
+	\begin{align}
+		P_7 &=\pr{Y=0}\\
+		    &=P_5+P_6 \\		
+		    &= \dfrac{3}{250}+ \dfrac{1}{250}\\
+		    &= \dfrac{4}{250}\\
+	     	&= \dfrac{2}{125}
+	\end{align}
+From Bayes' theorem, 
+\begin{align}
+\pr{X=1|Y=0}
+&=\dfrac{\pr{X=1}\times\pr{Y=0|X=1}}{\pr{Y=0}}
+\end{align}
+
+	\end{frame}
+	
+	% Continuation of the solution
+	\begin{frame}{Answer}
+Hence,
+\begin{align}
+	P_8 &=\pr{X=1|Y=0} \\
+	&=\dfrac{\pr{X=1}\times\pr{Y=0|X=1}}{\pr{Y=0}}\\
+	&= \dfrac{\dfrac{2}{5}\times\dfrac{1}{100}}{\dfrac{2}{125}}\\
+	&= \dfrac{\dfrac{2}{500}}{\dfrac{2}{125}}\\
+	&=\dfrac{1}{4}
+	\end{align}
+	\end{frame}
+	%conclusion
+	\begin{frame}{conclusion}
+	Therefore, the probability that the defective item is selected from machine B is $\dfrac{1}{4}$.
+	\end{frame}
+\end{document}
