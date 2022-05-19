@@ -1,0 +1,95 @@
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}                                     
+
+\title{AI1110 \\ Assignment 4}
+\author{Sai Pradeep \\ AI21BTECH11013}
+\date{\today}
+
+
+\begin{document}
+	% The title page
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	% The table of contents
+	\begin{frame}{Outline}
+		\tableofcontents
+	\end{frame}
+	
+	% The question
+	\section{Question}
+	\begin{frame}{EXAMPLE 2.20}
+Q:-	In a group of n people,
+	\begin{enumerate}[label=(\alph*)]
+		\item what is the probability that two or more persons will have
+		the same birthday (month and date)?
+		\item  What is the probability that someone in that
+		group will have birthday that matches yours? 
+	\end{enumerate}
+	\end{frame}
+	
+	% The solution
+	\section{Solution}
+	\begin{frame}{Solution}
+		Let $X=\cbrak{0,1}$ be a random variable representing the chances about people having same birthday. Let $Y=\cbrak{0,1}$ be a random variable representing the chances that someone has birthday same as mine. 
+See Table
+\eqref{table:table-1} and
+\eqref{table:table-2}
+	 	\end{frame}
+	 \begin{frame}{Events and random variables}
+	\begin{table}[ht!]
+		\input{../tables/table-1.tex}
+		\vspace*{5pt}
+		\caption{}
+		\label{table:table-1}
+	\end{table}
+	\end{frame}
+	\begin{frame}{}
+		\begin{table}[ht!]
+			\centering
+			\input{../tables/table-2.tex}
+			\caption{}
+			\label{table:table-2}	
+		\end{table}
+	\end{frame}
+\begin{frame}{Computation for part (a)}
+
+There are $N$ = 365 equally likely ways (number of days in a year) for each person, where their birthdays fall independently.
+there are $N$ ways for the first person to have a birthday, $N - 1$ ways
+for the second person without matching the first person, and $N - n + 1$ ways for the last person to have non matching birthday.	
+	\end{frame}
+	\begin{frame}
+So there are $N(N -1) ... (N -n + 1)$ favourable outcomes.
+For $n$ persons, there are $N^n$ possible outcomes.
+\begin{equation*}
+\pr{X=0} &= \frac{\prod_{i=0}^{n-1} (N-{i})}{N^n}
+         &=\prod_{i=0}^{n-1} (1-\dfrac{i}{N})
+\end{equation*}
+Hence,
+\begin{equation*}
+	\pr{X=1} &=1-\prod_{i=0}^{n-1} (1-\dfrac{i}{365})
+\end{equation*}
+	\end{frame}
+	%conclusion
+	\begin{frame}{Computation for part (b)}
+There are $N$ - 1 unfavorable days among N
+days for each person to not have same birthday as mine. probability that a person does not have same birthday as mine is $\dfrac{N - 1}{N}$. For a group of n persons,
+\begin{equation*}
+	\pr{Y=1} &=(\dfrac{N-1}{N})^n
+	         &=(1-\dfrac{1}{N})^n
+\end{equation*}.
+Hence,          
+\begin{equation*}
+	\pr{Y=0} &=1-(1-\dfrac{1}{365})^n
+\end{equation*}
+\end{frame}
+\end{document}
